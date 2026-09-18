@@ -1,5 +1,3 @@
-package ACT1_ROT13;
-
 public class rot13 {
     public static final Character[] minuscules = {
         'a', 'á', 'à', 'b', 'c', 'ç', 'd', 'e', 'é', 'è', 'f', 'g', 'h', 'i', 'í', 'ì', 'ï',
@@ -28,7 +26,12 @@ public class rot13 {
     }
 
     public static String xifraRot13 (String msg) {
-        
+        String txtF = "";
+        for (int i = 0; i<msg.length(); i++) {
+            char c = msg.charAt(i);
+            
+        }
+        return txtF;
     }
 
     public static String desxifraRot13 (String msg) {
