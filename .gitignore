@@ -1,0 +1,38 @@
+# =========================
+# Archivos compilados de Java
+# =========================
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# =========================
+# VS Code (Archivos del editor)
+# =========================
+.vscode/
+*.code-workspace
+
+# Nota: Si trabajas en equipo y quieres compartir las tareas o configuraciones
+# recomendadas de VS Code, descomenta las siguientes líneas:
+# !.vscode/tasks.json
+# !.vscode/settings.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# =========================
+# Herramientas de Construcción (Build Tools)
+# =========================
+# Maven
+target/
+*.tag
+
+# Gradle
+.gradle/
+build/
+
+# =========================
+# Sistema Operativo / Basura
+# =========================
+.DS_Store
+Thumbs.db
