@@ -9,7 +9,7 @@ public class rot13 {
         'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'Ó', 'Ò', 'P', 'Q', 'R', 'S', 'T', 'U', 'Ú', 'Ù', 'Ü',
         'V', 'W', 'X', 'Y', 'Z'};
     public static void main(String[] args) {
-        String msgs[] = {"ABC", "XYZ", "Hola, Mr.calçot", "Perdó, per tu què és?"};
+        String msgs[] = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què és?"};
         String msgX[] = new String[msgs.length];
         System.out.println("\nXifrat\n---------");
         
@@ -21,7 +21,7 @@ public class rot13 {
         System.out.println("\nDesxifrat\n---------");
 
         for (String msg: msgX) {
-            System.out.printf("%-23s => %s%n",msg, desxifraRot13(msg[i]));
+            System.out.printf("%-23s => %s%n",msg, desxifraRot13(msg));
         }
     }
 
@@ -29,13 +29,48 @@ public class rot13 {
         String txtF = "";
         for (int i = 0; i<msg.length(); i++) {
             char c = msg.charAt(i);
-            
+            Boolean trobat = false;
+            for (int x = 0; x<minuscules.length; x++) {
+                if (c == minuscules[x]) {
+                    txtF = txtF + minuscules[(x + 13) % minuscules.length];
+                    trobat = true;
+                    break;
+                }
+                if (c == majuscules[x]) {
+                    txtF = txtF + majuscules[(x + 13) % majuscules.length];
+                    trobat = true;
+                    break;
+                }
+            }
+            if (!trobat) {
+                txtF = txtF + c;
+            }
         }
         return txtF;
     }
 
     public static String desxifraRot13 (String msg) {
-
+        String txtF = "";
+        for (int i = 0; i<msg.length(); i++) {
+            char c = msg.charAt(i);
+            Boolean trobat = false;
+            for (int x = 0; x<minuscules.length; x++) {
+                if (c == minuscules[x]) {
+                    txtF = txtF + minuscules[(x - 13 + minuscules.length) % minuscules.length];
+                    trobat = true;
+                    break;
+                }
+                if (c == majuscules[x]) {
+                    txtF = txtF + majuscules[(x - 13 + majuscules.length) % majuscules.length];
+                    trobat = true;
+                    break;
+                }
+            }
+            if (!trobat) {
+                txtF = txtF + c;
+            }
+        }
+        return txtF;
     }
 
 }
