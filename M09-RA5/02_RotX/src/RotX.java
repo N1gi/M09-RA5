@@ -1,11 +1,11 @@
 public class RotX {
-    public static final String abc = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
-    public static final char[] minuscules = abc.toCharArray();
-    public static final char[] majuscules = abc.toUpperCase().toCharArray();
+    public static final String alfabet = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
+    public static final char[] minuscules = alfabet.toCharArray();
+    public static final char[] majuscules = alfabet.toUpperCase().toCharArray();
     public static void main(String[] args) {
         String msgs[] = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què és?"};
         String msgX[] = new String[msgs.length];
-        String msgX2 = "Úíüht, úiü wx ùxì ív?";
+        String msgX2 = "Úiüht, úiü wx ùxì ív?";
         System.out.println("\nXifrat\n---------");
         int index = 0;
         for (int i = 0; i<msgs.length; i++) {
@@ -74,7 +74,7 @@ public class RotX {
     }
 
     public static void forcaBrutaRotX (String msg) {
-        for (int index = 0; index<abc.length(); index++) {
+        for (int index = 0; index<alfabet.length(); index++) {
             String txtF = "";
             for (int i = 0; i<msg.length(); i++) {
             char c = msg.charAt(i);
