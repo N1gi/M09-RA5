@@ -1,11 +1,11 @@
 public class RotX {
-    public static final String abc = "aáàbcçdeéfghiíìïjklmnñoóòpqrstuúùüvwxyz";
+    public static final String abc = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
     public static final char[] minuscules = abc.toCharArray();
     public static final char[] majuscules = abc.toUpperCase().toCharArray();
     public static void main(String[] args) {
         String msgs[] = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què és?"};
         String msgX[] = new String[msgs.length];
-        String msgX2 = "Úíüit, úíü wx ùxè ìv?";
+        String msgX2 = "Úíüht, úiü wx ùxì ív?";
         System.out.println("\nXifrat\n---------");
         int index = 0;
         for (int i = 0; i<msgs.length; i++) {
@@ -74,9 +74,28 @@ public class RotX {
     }
 
     public static void forcaBrutaRotX (String msg) {
-        for (int i = 0; i<abc.length(); i++) {
-            String textF = "";
-            
+        for (int index = 0; index<abc.length(); index++) {
+            String txtF = "";
+            for (int i = 0; i<msg.length(); i++) {
+            char c = msg.charAt(i);
+            Boolean trobat = false;
+                for (int x = 0; x<minuscules.length; x++) {
+                    if (c == minuscules[x]) {
+                       txtF = txtF + minuscules[(x - index + minuscules.length) % minuscules.length];
+                        trobat = true;
+                        break;
+                    }
+                    if (c == majuscules[x]) {
+                        txtF = txtF + majuscules[(x - index + majuscules.length) %  majuscules.length];
+                        trobat = true;
+                        break;
+                    }
+                }
+                if (!trobat) {
+                    txtF = txtF + c;
+                }
+            }
+            System.out.printf("(%d)->%s%n", index, txtF);
         }
     }
 }
