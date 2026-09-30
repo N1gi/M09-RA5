@@ -4,12 +4,12 @@ import java.util.Collections;
 public class Monoalfabetic {
     public static final String alfabet = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
     public static final char[] majuscules = alfabet.toUpperCase().toCharArray();
-    public static final char[] abcP = permutaAlfabet(majuscules);
+    public static final char[] alfabetP = permutaAlfabet(majuscules);
     public static void main(String[] args) {
         String tests[] = {"Test 01 àrbitre, coixí, Perímetre", "Test 02 Taüll, DÍA, año", "Test 03 Peça, Òrrius, Bòvila"};
         String testX[] = new String[tests.length];
         mostraAlfabet(majuscules);
-        mostraAlfabet(abcP);
+        mostraAlfabet(alfabetP);
 
         System.out.println("Xifratge:");
         for (int i = 0; i<tests.length; i++) {
@@ -23,27 +23,27 @@ public class Monoalfabetic {
         }
     }
 
-    public static char[] permutaAlfabet(char[] abc) {
+    public static char[] permutaAlfabet(char[] alfabet) {
         ArrayList<Character> list = new ArrayList<>();
 
-        for (char c : abc) {
+        for (char c : alfabet) {
             list.add(c);
         }
 
         Collections.shuffle(list);
 
-        char[] abcP = new char[list.size()];
+        char[] alfabetP = new char[list.size()];
         
-        for (int i = 0; i<abcP.length; i++) {
-            abcP[i] = list.get(i);
+        for (int i = 0; i<alfabetP.length; i++) {
+            alfabetP[i] = list.get(i);
         }
-        return abcP;
+        return alfabetP;
     }
 
-    public static void mostraAlfabet(char[] abc) {
-        for (int i = 0; i<abc.length; i++) {
-            char c = abc[i];
-            if (i == abc.length - 1) {
+    public static void mostraAlfabet(char[] alfabet) {
+        for (int i = 0; i<alfabet.length; i++) {
+            char c = alfabet[i];
+            if (i == alfabet.length - 1) {
                 System.out.printf("%c%n",c);
             }
             else {
@@ -59,12 +59,12 @@ public class Monoalfabetic {
             Boolean trobat = false;
             for (int x = 0; x<majuscules.length; x++) {
                 if (c == majuscules[x]) {
-                    txtF = txtF + abcP[x];
+                    txtF = txtF + alfabetP[x];
                     trobat = true;
                     break;
                 }
                 if (c == Character.toLowerCase(majuscules[x])) {
-                    txtF = txtF + Character.toLowerCase(abcP[x]);
+                    txtF = txtF + Character.toLowerCase(alfabetP[x]);
                     trobat = true;
                     break;
                 }
@@ -81,13 +81,13 @@ public class Monoalfabetic {
         for (int i = 0; i<text.length(); i++) {
             char c = text.charAt(i);
             Boolean trobat = false;
-            for (int x = 0; x<abcP.length; x++) {
-                if (c == abcP[x]) {
+            for (int x = 0; x<alfabetP.length; x++) {
+                if (c == alfabetP[x]) {
                     txtF = txtF + majuscules[x];
                     trobat = true;
                     break;
                 }
-                if (c == Character.toLowerCase(abcP[x])) {
+                if (c == Character.toLowerCase(alfabetP[x])) {
                     txtF = txtF + Character.toLowerCase(majuscules[x]);
                     trobat = true;
                     break;
