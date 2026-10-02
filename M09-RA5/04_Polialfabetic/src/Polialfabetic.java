@@ -6,7 +6,7 @@ public class Polialfabetic {
     public static final String alfabet = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
     public static final char[] majuscules = alfabet.toUpperCase().toCharArray();
     public static char[] alfabetP = new char[majuscules.length];
-    public static final int clauSecreta = 12;
+    public static final long clauSecreta = 1234;
     public static Random random;  
     public static void main(String[] args) {
         String msgs[] = {"Test 01 àrbitre, coixí, Perímetre",
@@ -28,7 +28,7 @@ public class Polialfabetic {
             System.out.printf("%-34s -> %s%n", msgsXifrats[i], msg);
         }
     }
-    public static void initRandom(int clauSecreta) {
+    public static void initRandom(long clauSecreta) {
         random = new Random(clauSecreta);
     }
 
