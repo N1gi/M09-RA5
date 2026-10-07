@@ -1,3 +1,9 @@
+import java.nio.charset.StandardCharsets;
+import java.security.*;
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
 public class AES {
     public static final String ALGORISME_XIFRAT = "AES";
     public static final String ALGORISME_HASH = "SHA-256";
@@ -32,13 +38,17 @@ public class AES {
 
     public static byte[] xifraAES(String msg, String clau) throws Exception {
         //Obtenir els bytes de l’String
-
+        byte[] bytes = msg.getBytes(StandardCharsets.UTF_8);
         // Genera IvParameterSpec
-
+        IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
         // Genera hash
-
+        MessageDigest digest = MessageDigest.getInstance(ALGORISME_HASH);
+        byte[] hash = digest.digest(clau.getBytes(StandardCharsets.UTF_8));
         // Encrypt.
-
+        Cipher cipher = Cipher.getInstance(FORMAT_AES);
+        SecretKeySpec secretKey = new SecretKeySpec(hash, ALGORISME_XIFRAT);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivParameterSpec);
+        byte[] msgXifrat = cipher.doFinal(msg.getBytes(StandardCharsets.UTF_8));
         // Combinar IV i part xifrada.
 
         // return iv+msgxifrat
