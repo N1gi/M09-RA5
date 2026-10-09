@@ -1,6 +1,6 @@
 package iticbcn.xifratge;
 
-public class XifradorRotX {
+public class XifradorRotX implements Xifrador {
     public static final String alfabet = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
     public static final char[] minuscules = alfabet.toCharArray();
     public static final char[] majuscules = alfabet.toUpperCase().toCharArray();

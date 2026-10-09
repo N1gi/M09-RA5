@@ -3,7 +3,7 @@ package iticbcn.xifratge;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class XifradorMonoalfabetic {
+public class XifradorMonoalfabetic implements Xifrador {
     public static final String alfabet = "aáàbcçdeéèfghiíìïjklmnñoóòpqrstuúùüvwxyz";
     public static final char[] majuscules = alfabet.toUpperCase().toCharArray();
     public final char[] alfabetP = permutaAlfabet(majuscules);
